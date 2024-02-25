@@ -42,9 +42,13 @@ class My_social(models.Model):
         return self.link
 
 class My_projects(models.Model):
+    CHOICES = (
+        ('frontend', 'frontend'),
+        ('backend', 'backend'),
+    )
     img = models.ImageField(upload_to='imgs')
     name = models.CharField(max_length=50)
-    category = models.CharField(max_length=50)
+    category = models.CharField(choices=CHOICES, max_length=50)
     title = models.CharField(max_length=50)
     client = models.CharField(max_length=100)
     date = models.CharField(max_length=50)
